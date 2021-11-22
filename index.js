@@ -26,7 +26,7 @@ const main=async()=>{
 
     await objetivoModel.create({
         descripcion:"permitir generar los objetivos ",
-        tipo:"general"
+        
        
     }).then((objetivo)=>{
         console.log('coleccion objetivo creado',objetivo);

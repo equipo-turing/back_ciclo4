@@ -10,7 +10,8 @@ const objetivoSchema = new mongoose.Schema({
     tipo:{
         type:String,
         required:true,
-        
+        enum:["general","especifico"],
+        default:"general"
     },
 
 });
