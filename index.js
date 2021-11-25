@@ -6,6 +6,8 @@ import { ProjectModel } from './models/proyecto/proyecto.js';
 import { ObjectiveModel } from './models/objective.js';
 //import { Enum_EstadoUsuario, Enum_Rol, Enum_TipoObjetivo } from './models/enums/enums';
 
+import { InscriptionModel } from './models/inscripcion/inscripcion.js';
+
 dotenv.config();//para que funcione el archivo .env
 
 const main=async()=>{
@@ -35,22 +37,30 @@ const main=async()=>{
     });*/
 
     const usuarioInicial = await UserModel.create({
-        nombre: 'Andres',
-        apellido: 'Saldarriaga',
-        correo: 'andres@cc.com',
-        identificacion: '12345',
-        rol: 'LIDER',
+        nombre: 'LAURA',
+        apellido: 'Trujillo',
+        correo: 'laura@unilibre.com',
+        identificacion: '31231',
+        rol: 'ESTUDIANTE',
         estado: 'AUTORIZADO',
       });
     
-      const proyectoCreado = await ProjectModel.create({
-        nombre: 'UNIVERSIDAD ANTIOQUIA',
+    const proyectoCreado = await ProjectModel.create({
+        nombre: 'UNIVERSIDAD LIBRE',
         fechaInicio: new Date('2021/12/24'),
         fechaFin: new Date('2022/12/24'),
-        presupuesto: 120000,
+        presupuesto: 111111,
         lider: usuarioInicial._id,
-      });
+    });
     
+    //falta crear la inscripcion
+    const inscripcionCreada = await InscriptionModel.create({
+        estado:'ACEPTADO',
+        fechaIngreso: new Date('2021/12/24'),
+        fechaEgreso: new Date('2022/12/24'),
+        proyecto:proyectoCreado.id,
+        estudiante:usuarioInicial._id,
+    });
 }
 
 main();
