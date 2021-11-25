@@ -17,14 +17,13 @@ const avancesSchema = new mongoose.Schema({
     observaciones:{
         type:String,
         required:false,
-    }
-   /*  
-   se habilita cuando esté la colección usario creada
+    },    
+
    creadopor:{ 
         type:Schema.Types.ObjectId,
         required:true,
-        //ref:usuarioModel
-    }  */
+        ref:usuarioModel
+    } 
 
 });
 
