@@ -1,0 +1,6 @@
+OPERACIONES EN GRAPHQL:
+    - QUERY : Busqueda de informacion
+    - Mutaciones: 
+        - Mutaciones de creacion
+        - mutaciones de edicion
+        - mutaciones de eliminacion 
