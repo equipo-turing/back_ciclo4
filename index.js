@@ -1,35 +1,51 @@
 import express from 'express';
 import cors from 'cors';
-import {ApolloServer} from 'apollo-server-express';
+import { ApolloServer } from 'apollo-server-express';
 import dotenv from 'dotenv';
-import connectDB from './db/db.js';
-import { tipos} from './graphql/types.js';
+import conectarBD from './db/db.js';
+import { tipos } from './graphql/types.js';
 import { resolvers } from './graphql/resolvers.js';
-
-// **********************CONFIGURAANDO EL SERVIDOR**************************
+import { validateToken } from './utils/tokenUtils.js';
 
 dotenv.config();
 
-//definiendo un servidor de graphql- apolo
-const server = new ApolloServer({
-  //se le pasan dos propiedades importantes,tipos y resolves
-  typeDefs: tipos, 
-  resolvers: resolvers,
+const getUserData = (token) => {
+  const verificacion = validateToken(token.split(' ')[1]);
+  if (verificacion.data) {
+    return verificacion.data;
+  } else {
+    return null;
+  }
+};
 
+const server = new ApolloServer({
+  typeDefs: tipos,
+  resolvers: resolvers,
+  context: ({ req, res }) => {
+    const token = req.headers?.authorization ?? null;
+    if (token) {
+      const userData = getUserData(token);
+      if (userData) {
+        return { userData };
+      }
+    }
+    return null;
+  },
 });
 
 const app = express();
-app.use(express.json());//para que los reques entren y salgan de tipo json
-app.use(cors());//el cors para hacer request desde muchos orígenes
 
-app.listen({ port: process.env.PORT || 4000 },async ()=>{
-  await connectDB();//conexion a bd
-  await server.start();//prendemos el servidor de apolo
+app.use(express.json());
 
-  server.applyMiddleware({app});
+app.use(cors());
+
+app.listen({ port: process.env.PORT || 4000 }, async () => {
+  await conectarBD();
+  await server.start();
+
+  server.applyMiddleware({ app });
 
   console.log('servidor listo');
 });
-
 
 
