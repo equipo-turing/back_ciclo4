@@ -2,18 +2,37 @@ Ejemplo mutacion
 
 editarProyectoLider
 
+#Se le debe de enviar el idLider y el idProyecto el idLider valida que el usuario sea lider y el idProyecto valida que el proyecto este Activo
 mutation{
   editarProyectoLider (
     idLider:"61ab846d8e97835687d61766",
-    idProyecto:""
+    idProyecto:"61ae93f43f9d798f220cebdd"
     campos:{
-      nombreProyecto:"BOLIVAR",
+      nombreProyecto:"BOLIVARES3",
       objetivos:[{descripcion:"ESTE ES EL NUEVO OBJETIVO GENERAL",tipo:GENERAL},{
         descripcion:"ESTE ES EL NUEVO OBJETIVO ESPECIFICO",tipo:ESPECIFICO
-      }]
+      }],
+      presupuesto:1312312
     }
   ) 
   {
     estado
   }
 }
+
+crearProyecto
+
+mutation {
+  crearProyecto(
+    nombre: "BOLIVAR",
+    fechaInicio: "2022-12-14",
+    fechaFin: "2024-12-14",
+    lider: "61ab846d8e97835687d61766",
+    objetivos: [{tipo:ESPECIFICO,descripcion:"este es un objetivo especifico"},
+    {descripcion:"este es el general",tipo:GENERAL}],
+    presupuesto: 1231231
+  ) {
+    estado
+  }
+}
+

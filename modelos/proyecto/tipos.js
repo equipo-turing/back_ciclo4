@@ -42,8 +42,8 @@ const tiposProyecto = gql`
   }
   input camposActualizarProyectoLider{
     nombreProyecto:String!
-    presupuesto:Float
-    objetivos: [crearObjetivo]
+    presupuesto:Float!
+    objetivos: [crearObjetivo]!
   }
   type Query {
     Proyectos: [Proyecto]

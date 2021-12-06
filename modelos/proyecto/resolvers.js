@@ -87,9 +87,17 @@ const resolversProyecto = {
       console.log("este es el proyecto",proyectos)
       //const proyectos = await ProjectModel.findOneAndUpdate().populate('lider');
       if (proyectos.length == 0) {
-        return {"Respuesta":"No hay proyectos activos para ese lider"}
+        return {"Respuesta":"No hay proyectos activos para ese lider"};
       }
-      return proyectos;
+      const actualizar_proyecto = await ProjectModel.findByIdAndUpdate(args.idProyecto ,
+        {
+          nombre:args.campos.nombreProyecto,
+          objetivos:args.campos.objetivos,
+          presupuesto:args.campos.presupuesto
+        },
+        { new: true }  
+      );
+      return actualizar_proyecto;
     }
   },
 };
