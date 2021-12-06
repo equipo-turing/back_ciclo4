@@ -1,0 +1,19 @@
+Ejemplo mutacion
+
+editarProyectoLider
+
+mutation{
+  editarProyectoLider (
+    idLider:"61ab846d8e97835687d61766",
+    idProyecto:""
+    campos:{
+      nombreProyecto:"BOLIVAR",
+      objetivos:[{descripcion:"ESTE ES EL NUEVO OBJETIVO GENERAL",tipo:GENERAL},{
+        descripcion:"ESTE ES EL NUEVO OBJETIVO ESPECIFICO",tipo:ESPECIFICO
+      }]
+    }
+  ) 
+  {
+    estado
+  }
+}

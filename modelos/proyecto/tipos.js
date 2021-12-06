@@ -27,7 +27,12 @@ const tiposProyecto = gql`
     lider: String
   }
 
- 
+  input camposActualizarProyectoLider{
+    nombreProyecto:String!
+    presupuesto:Float
+    objetivos: [crearObjetivo]
+  }
+
   type Query{
       
       Proyectos: [Proyecto]
@@ -56,6 +61,8 @@ const tiposProyecto = gql`
     editarObjetivo(idProyecto: String!, indexObjetivo: Int!, campos: camposObjetivo!): Proyecto
 
     eliminarObjetivo(idProyecto: String!, idObjetivo: String!): Proyecto
+    
+    editarProyectoLider(idLider:String!,idProyecto:String!,campos:camposActualizarProyectoLider!):Proyecto
   }
 
  

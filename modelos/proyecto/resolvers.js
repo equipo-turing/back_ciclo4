@@ -1,5 +1,6 @@
 
 import { ProjectModel } from "./proyecto.js";
+import { ObjectId } from 'mongodb';
 
 
 const resolversProyecto ={
@@ -62,6 +63,7 @@ const resolversProyecto ={
             );
             return proyectoEditado;
           },
+          
           eliminarObjetivo: async (parent, args) => {
             const proyectoObjetivo = await ProjectModel.findByIdAndUpdate(
               { _id: args.idProyecto },
@@ -76,7 +78,21 @@ const resolversProyecto ={
             );
             return proyectoObjetivo;
           },
+          
+          editarProyectoLider: async (parent,args) =>{
+            //validamos que el proyecto este activo primero 
+            console.log(args.idLider)
+            const obId = ObjectId(args.idLider)
+            const proyectos = await ProjectModel.find({lider:obId,_id:args.idProyecto,estado:"ACTIVO"}).populate('lider');
+            console.log("este es el proyecto",proyectos)
+            //const proyectos = await ProjectModel.findOneAndUpdate().populate('lider');
+            if (proyectos.length == 0) {
+              return {"Respuesta":"No hay proyectos activos para ese lider"}
+            }
+            return proyectos;
+          }
         },
+
       };
       
       export { resolversProyecto };
