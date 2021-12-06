@@ -73,24 +73,24 @@ const resolversProyecto = {
               _id: args.idObjetivo,
             },
           },
-          
-          editarProyectoLider: async (parent,args) =>{
-            //validamos que el proyecto este activo primero 
-            console.log(args.idLider)
-            const obId = ObjectId(args.idLider)
-            const proyectos = await ProjectModel.find({lider:obId,_id:args.idProyecto,estado:"ACTIVO"}).populate('lider');
-            console.log("este es el proyecto",proyectos)
-            //const proyectos = await ProjectModel.findOneAndUpdate().populate('lider');
-            if (proyectos.length == 0) {
-              return {"Respuesta":"No hay proyectos activos para ese lider"}
-            }
-            return proyectos;
-          }
+      
         },
         { new: true }
       );
       return proyectoObjetivo;
     },
+    editarProyectoLider: async (parent,args) =>{
+      //validamos que el proyecto este activo primero 
+      console.log(args.idLider)
+      const obId = ObjectId(args.idLider)
+      const proyectos = await ProjectModel.find({lider:obId,_id:args.idProyecto,estado:"ACTIVO"}).populate('lider');
+      console.log("este es el proyecto",proyectos)
+      //const proyectos = await ProjectModel.findOneAndUpdate().populate('lider');
+      if (proyectos.length == 0) {
+        return {"Respuesta":"No hay proyectos activos para ese lider"}
+      }
+      return proyectos;
+    }
   },
 };
 
