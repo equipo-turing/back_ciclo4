@@ -24,11 +24,15 @@ const resolversAvance = {
         return avanceCreado;
       },
       agregarObservacion:async (parent,args)=>{
-        const adva = ModeloAvance.findById(args._id);
-        console.log(adva)
+        //const adva = ModeloAvance.findById(args._id);
         // const avanceCreado = ModeloAvance.findByIdAndUpdate(args._id,{
         //   ...args.campos
         // })
+        const adva = ModeloAvance.findByIdAndUpdate(
+          args._id,
+          { $push: { observaciones: args.observaciones } },
+          
+        );
         console.log(args.observaciones,args._id)
         return adva;
       }

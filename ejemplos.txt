@@ -171,3 +171,16 @@ mutation {
     descripcion
   }
 }
+
+---------------------------------------------------------------------------------------------------
+HU_018
+
+mutation{
+  agregarObservacion(
+    _id:"61b242e9f242b06cfb26ac49"
+    observaciones: "Esta es una nueva observacion 2 "
+  ) {
+    fecha
+    descripcion
+  }
+}
