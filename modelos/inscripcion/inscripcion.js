@@ -37,6 +37,16 @@ const inscriptionSchema = new Schema({
   }
 );
 
+inscriptionSchema.virtual('proyectoss', {
+  ref: 'Proyecto',
+  localField: 'proyecto',
+  foreignField: '_id',
+});
+inscriptionSchema.virtual('estudiantess', {
+  ref: 'User',
+  localField: 'estudiante',
+  foreignField: '_id',
+});
 const InscriptionModel = model('Inscripcion', inscriptionSchema, 'Inscripciones');
 
 export { InscriptionModel };

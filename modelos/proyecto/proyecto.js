@@ -70,6 +70,12 @@ projectSchema.virtual('inscripciones', {
   foreignField: 'proyecto',
 });
 
+projectSchema.virtual('liderr', {
+  ref: 'User',
+  localField: 'lider',
+  foreignField: '_id',
+});
+
 const ProjectModel = model('Proyecto', projectSchema);
 
 export { ProjectModel };

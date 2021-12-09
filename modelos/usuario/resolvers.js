@@ -18,6 +18,10 @@ const resolversUsuario = {
       const usuario = await UserModel.findOne({ _id: args._id });
       return usuario;
     },
+    // EstudiantesLider:async(parent,args)=>{
+    //   const estudiantes_lider = await UserModel.find()
+    //   return estudiantes_lider;
+    // }
   },
   Mutation: {
     crearUsuario: async (parent, args) => {

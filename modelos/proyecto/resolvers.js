@@ -2,6 +2,8 @@ import { InscriptionModel } from '../inscripcion/inscripcion.js';
 import { UserModel } from '../usuario/usuario.js';
 import { ProjectModel } from './proyecto.js';
 import { ObjectId } from 'mongodb';
+import mongoose from 'mongoose';
+
 const resolversProyecto = {
   Proyecto: {
     lider: async (parent, args, context) => {
@@ -20,18 +22,20 @@ const resolversProyecto = {
 
       console.log(args.idLider)
       const obId = ObjectId(args.idLider)
-      const proyectos = await ProjectModel.find({lider:obId}).populate('lider');
+      const proyectos = await ProjectModel.find({lider:obId}).populate('liderr');
       console.log(proyectos)
       return proyectos;
     },
     EstudiantesRegistradosLider:async (parent,args)=>{
-      
       console.log(args.idLider)
-      const obId = ObjectId(args.idLider)
-      const proyectos = await ProjectModel.find({lider:obId}).populate('inscripciones').populate('lider');
-      console.log(proyectos[0].inscripciones)
+      console.log("ho")
+      //const proyectos = await ProjectModel.find({lider:obId}).populate('inscripciones').populate('lider');
+      const proyectos = await ProjectModel.find({lider:args.idLider}).populate('inscripciones').populate('avances');
+      //console.log(proyectos[0].inscripciones)
+      console.log(proyectos)
       return proyectos;
-    }
+    },
+    
   },
   Mutation: {
     crearProyecto: async (parent, args, context) => {

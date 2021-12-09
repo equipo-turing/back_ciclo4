@@ -40,6 +40,19 @@ const tiposProyecto = gql`
     avances: [Avance]
     inscripciones: [Inscripcion]
   }
+  type ProyectoU {
+    _id: ID!
+    nombre: String!
+    presupuesto: Float!
+    fechaInicio: Date!
+    fechaFin: Date!
+    estado: Enum_EstadoProyecto!
+    fase: Enum_FaseProyecto!
+    liderr: Usuario!
+    objetivos: [Objetivo]
+    avances: [Avance]
+    inscripciones: [Inscripcion]
+  }
   input camposActualizarProyectoLider{
     nombreProyecto:String!
     presupuesto:Float!

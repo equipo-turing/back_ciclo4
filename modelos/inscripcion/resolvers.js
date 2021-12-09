@@ -13,11 +13,11 @@ const resolverInscripciones = {
       return inscripciones;
     },
     EstudiantesRegistradosLiderInscripciones:async (parent,args)=>{ 
-      console.log(args.idLider)
-      const inscripciones = await InscriptionModel.find().populate('estudiante');
+      //console.log(args.idLider)
+      const inscripciones = await InscriptionModel.find().populate({path:'proyectoss'}).populate({path:'estudiantess'});
       //const proyectos = await ProjectModel.find({lider:obId}).populate('estudiante');
-      console.log(proyectos)
-      return proyectos;
+      console.log(inscripciones[0])
+      return inscripciones;
     }
   },
   Mutation: {
