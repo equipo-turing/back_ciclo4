@@ -72,3 +72,38 @@ mutation  {
 
 
 --------------------------------------------------------------------------------------------------------------------------------------
+crearInscripcion
+
+mutation {
+  crearInscripcion(
+    estado: ACEPTADO,
+    estudiante: "61b21d6d9ea13da032521b6e",
+    proyecto: "61b220469f146aaf09fedbb9"
+  ) {
+    estado
+  }
+}
+
+--------------------------------------------------------------------------------------------------------------------------------
+EstudiantesRegistradosLider - > El idLider lo filtra en proyecto y luego hace un populate con inscripciones para sacar el estudiante
+query {
+  EstudiantesRegistradosLider(
+    idLider:"61ae94513f9d798f220cebe1"
+  ){
+    fase
+  }
+}
+
+-------------------------------------------------------------------------------------------------------------------------------
+filtrar un usuario
+query {
+  Usuario(_id: "61b215c2c10fadfbf665576b") {
+  nombre,
+  apellido,
+  inscripciones {
+    estado
+  }
+  }
+}
+
+--------------------------------------------------------------------------------------------------------------------------------

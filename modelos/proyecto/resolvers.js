@@ -23,6 +23,14 @@ const resolversProyecto = {
       const proyectos = await ProjectModel.find({lider:obId}).populate('lider');
       console.log(proyectos)
       return proyectos;
+    },
+    EstudiantesRegistradosLider:async (parent,args)=>{
+      
+      console.log(args.idLider)
+      const obId = ObjectId(args.idLider)
+      const proyectos = await ProjectModel.find({lider:obId}).populate('inscripciones').populate('lider');
+      console.log(proyectos[0].inscripciones)
+      return proyectos;
     }
   },
   Mutation: {
