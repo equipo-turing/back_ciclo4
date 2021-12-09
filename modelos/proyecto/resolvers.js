@@ -30,7 +30,7 @@ const resolversProyecto = {
       console.log(args.idLider)
       console.log("ho")
       //const proyectos = await ProjectModel.find({lider:obId}).populate('inscripciones').populate('lider');
-      const proyectos = await ProjectModel.find({lider:args.idLider}).populate('inscripciones').populate('avances');
+      const proyectos = await ProjectModel.find({lider:args.idLider}).populate('inscripciones').populate('liderr');
       //console.log(proyectos[0].inscripciones)
       console.log(proyectos)
       return proyectos;

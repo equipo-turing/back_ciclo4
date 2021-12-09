@@ -17,6 +17,14 @@ const tiposInscripcion = gql`
     proyectoss: [Proyecto]!
     estudiantess: [Usuario]
   }
+  type Inscrip{
+    _id: ID!
+    estado: Enum_EstadoInscripcion!
+    fechaIngreso: Date
+    fechaEgreso: Date
+    proyectoss: Proyecto
+    estudiantess: Usuario
+  }
   type Query {
     Inscripciones: [Inscripcion]
     EstudiantesRegistradosLiderInscripciones:[InscripcionesUsuario]

@@ -47,6 +47,7 @@ inscriptionSchema.virtual('estudiantess', {
   localField: 'estudiante',
   foreignField: '_id',
 });
+
 const InscriptionModel = model('Inscripcion', inscriptionSchema, 'Inscripciones');
 
 export { InscriptionModel };

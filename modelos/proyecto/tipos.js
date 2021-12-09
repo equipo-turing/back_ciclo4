@@ -51,7 +51,7 @@ const tiposProyecto = gql`
     liderr: Usuario!
     objetivos: [Objetivo]
     avances: [Avance]
-    inscripciones: [Inscripcion]
+    estudiantesss: [Inscrip]
   }
   input camposActualizarProyectoLider{
     nombreProyecto:String!

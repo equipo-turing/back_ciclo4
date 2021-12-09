@@ -18,6 +18,10 @@ const resolversUsuario = {
       const usuario = await UserModel.findOne({ _id: args._id });
       return usuario;
     },
+    Estudiantes: async (paren,args)=>{
+      const usuarios = await UserModel.find({ rol:"ESTUDIANTE" });
+      return usuarios;
+    }
     // EstudiantesLider:async(parent,args)=>{
     //   const estudiantes_lider = await UserModel.find()
     //   return estudiantes_lider;
