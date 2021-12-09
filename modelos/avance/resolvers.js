@@ -23,6 +23,15 @@ const resolversAvance = {
         });
         return avanceCreado;
       },
+      agregarObservacion:async (parent,args)=>{
+        const adva = ModeloAvance.findById(args._id);
+        console.log(adva)
+        // const avanceCreado = ModeloAvance.findByIdAndUpdate(args._id,{
+        //   ...args.campos
+        // })
+        console.log(args.observaciones,args._id)
+        return adva;
+      }
     },
   };
   

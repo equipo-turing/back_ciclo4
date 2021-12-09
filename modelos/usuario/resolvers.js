@@ -70,6 +70,19 @@ const resolversUsuario = {
         return usuarioEliminado;
       }
     },
+    actualizarEstado:async (paren,args)=>{
+      const usuarioEditado = await UserModel.findOneAndUpdate(
+        { 
+          _id:args._id,
+          rol:"ESTUDIANTE"
+        
+        },
+        {
+          estado: "AUTORIZADO",
+        },
+        { new: true }
+      );
+    }
   },
 };
 

@@ -107,3 +107,67 @@ query {
 }
 
 --------------------------------------------------------------------------------------------------------------------------------
+query {
+  EstudiantesRegistradosLider(
+    idLider:"61ab846d8e97835687d61766"
+  ) {
+    nombre
+    lider {
+      apellido
+    }    
+    inscripciones {
+      estado
+      fechaEgreso
+      
+    }
+  }
+
+}
+----------------------------------------------------------------------------------------------------------------
+HU11
+ACTUALIZAR USUARIO 
+
+mutation {
+  actualizarEstado(
+    _id:"61b21d6d9ea13da032521b6e"
+  ) {
+    correo
+  }
+}
+
+------------------------------------------------------------------------------------------------------------------
+
+HU_017
+
+uno de los proyectos con populate a avances y a usuario para el lider 
+_id = al id del proyecto 61ae93f43f9d798f220cebdd
+
+query {
+  informacionAvancesProyecto(
+    _id:"61ae93f43f9d798f220cebdd"
+  ) {
+    nombre
+    presupuesto
+    lider {
+      nombre
+    }
+    avances {
+      descripcion
+      fecha
+    }
+  }
+}
+
+------------------------------------------------------------------------------------------------------------------------
+
+Crear un avance
+mutation {
+  crearAvance(
+    fecha: "2022-12-15"
+    creadoPor: "61ab846d8e97835687d61766"
+    descripcion: "este es un avance"
+    proyecto: "61ae93f43f9d798f220cebdd"
+  ) {
+    descripcion
+  }
+}

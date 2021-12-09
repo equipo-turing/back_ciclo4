@@ -62,6 +62,7 @@ const tiposProyecto = gql`
     Proyectos: [Proyecto]
     ProyectosLiderados(idLider:String!):[Proyecto]
     EstudiantesRegistradosLider(idLider:String!):[Proyecto]
+    informacionAvancesProyecto(_id:String!):Proyecto
   }
 
   type Mutation {
@@ -83,6 +84,8 @@ const tiposProyecto = gql`
     eliminarObjetivo(idProyecto: String!, idObjetivo: String!): Proyecto
     
     editarProyectoLider(idLider:String!,idProyecto:String!,campos:camposActualizarProyectoLider!):Proyecto
+
+    
   }
 `;
 

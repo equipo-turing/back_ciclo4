@@ -35,6 +35,12 @@ const resolversProyecto = {
       console.log(proyectos)
       return proyectos;
     },
+    informacionAvancesProyecto:async(parent,args)=>{
+      const proyectos = await ProjectModel.find({_id:args._id}).populate('avances').populate('liderr');
+      //console.log(proyectos[0].inscripciones)
+      console.log(proyectos)
+      return proyectos[0];
+    }
     
   },
   Mutation: {
