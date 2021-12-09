@@ -53,19 +53,22 @@ query {
   }
 }
 ------------------------------------------------------------------------------------------------------------------------------------
+
 crearUsuario
 mutation  {
   crearUsuario(
-    nombre:"andres",
-    apellido:"rojas",
-    identificacion:"12112312",
-    correo:"aadasd@gmail.com",
+    nombre:"ruby",
+    apellido:"yangana",
+    identificacion:"313131",
+    correo:"ruby@gmail.com",
     rol:ESTUDIANTE,
     estado:AUTORIZADO,
-    password:"12345"
+    password:"124123"
   ) {
     nombre,
     apellido
   }
 }
+
+
 --------------------------------------------------------------------------------------------------------------------------------------
