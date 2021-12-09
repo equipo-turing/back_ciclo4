@@ -39,3 +39,33 @@ mutation {
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
+ProyectosLiderados
+
+query {
+  ProyectosLiderados(
+    idLider:"61ab846d8e97835687d61766"
+  ) {
+    nombre,
+    estado,
+    presupuesto,
+    fechaFin,
+    fase
+  }
+}
+------------------------------------------------------------------------------------------------------------------------------------
+crearUsuario
+mutation  {
+  crearUsuario(
+    nombre:"andres",
+    apellido:"rojas",
+    identificacion:"12112312",
+    correo:"aadasd@gmail.com",
+    rol:ESTUDIANTE,
+    estado:AUTORIZADO,
+    password:"12345"
+  ) {
+    nombre,
+    apellido
+  }
+}
+--------------------------------------------------------------------------------------------------------------------------------------

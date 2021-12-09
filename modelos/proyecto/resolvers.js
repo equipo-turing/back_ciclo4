@@ -16,6 +16,14 @@ const resolversProyecto = {
       const proyectos = await ProjectModel.find();
       return proyectos;
     },
+    ProyectosLiderados: async (parent,args)=>{
+
+      console.log(args.idLider)
+      const obId = ObjectId(args.idLider)
+      const proyectos = await ProjectModel.find({lider:obId}).populate('lider');
+      console.log(proyectos)
+      return proyectos;
+    }
   },
   Mutation: {
     crearProyecto: async (parent, args, context) => {
