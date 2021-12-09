@@ -35,6 +35,13 @@ const resolversAvance = {
         );
         console.log(args.observaciones,args._id)
         return adva;
+      },
+      editarDescripcionAvance:async (parent,args)=>{
+        const adva = ModeloAvance.findByIdAndUpdate(
+          args._id,
+          { descripcion:args.descripcion},
+        );
+        return adva;
       }
     },
   };

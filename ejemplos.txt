@@ -184,3 +184,17 @@ mutation{
     descripcion
   }
 }
+-----------------------------------------------------------------------------------------------------------------------------
+
+Historia de usuario: HU_023
+
+mutation{
+  editarDescripcionAvance(
+    _id: "61b242e9f242b06cfb26ac49"
+    descripcion:"ESTA ES LA NUEVA DESCRIPCION"
+  ) {
+    descripcion
+    observaciones
+  }
+}
+
