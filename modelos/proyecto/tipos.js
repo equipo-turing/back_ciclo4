@@ -83,7 +83,7 @@ const tiposProyecto = gql`
 
     eliminarObjetivo(idProyecto: String!, idObjetivo: String!): Proyecto
     
-    editarProyectoLider(idLider:String!,idProyecto:String!,campos:camposActualizarProyectoLider!):Proyecto
+    editarProyectoLider(idLider:String!,idProyecto:String!,campos:camposActualizarProyectoLider!):ProyectoU
 
     
   }

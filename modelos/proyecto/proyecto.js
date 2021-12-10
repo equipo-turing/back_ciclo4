@@ -75,6 +75,7 @@ projectSchema.virtual('liderr', {
   localField: 'lider',
   foreignField: '_id',
 });
+
 const ProjectModel = model('Proyecto', projectSchema);
 
 export { ProjectModel };

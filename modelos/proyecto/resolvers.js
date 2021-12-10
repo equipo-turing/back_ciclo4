@@ -19,7 +19,6 @@ const resolversProyecto = {
       return proyectos;
     },
     ProyectosLiderados: async (parent,args)=>{
-
       console.log(args.idLider)
       const obId = ObjectId(args.idLider)
       const proyectos = await ProjectModel.find({lider:obId}).populate('liderr');
@@ -30,16 +29,18 @@ const resolversProyecto = {
       console.log(args.idLider)
       console.log("ho")
       //const proyectos = await ProjectModel.find({lider:obId}).populate('inscripciones').populate('lider');
-      const proyectos = await ProjectModel.find({lider:args.idLider}).populate('inscripciones').populate('liderr');
+      //const proyectos = await ProjectModel.find({lider:args.idLider}).populate('inscripciones').populate('');
+      const proyectos = await ProjectModel.find({lider:args.idLider}).populate('liderr').populate('inscripciones');
+      
       //console.log(proyectos[0].inscripciones)
       console.log(proyectos)
       return proyectos;
     },
     informacionAvancesProyecto:async(parent,args)=>{
-      const proyectos = await ProjectModel.find({_id:args._id}).populate('avances').populate('liderr');
+      const proyectos = await ProjectModel.find({_id:args._id});//.populate('avances').populate('liderr');
       //console.log(proyectos[0].inscripciones)
       console.log(proyectos)
-      return proyectos;
+      return proyectos[0];
     },
     
   },
