@@ -18,6 +18,13 @@ const resolverInscripciones = {
       //const proyectos = await ProjectModel.find({lider:obId}).populate('estudiante');
       console.log(inscripciones[0])
       return inscripciones;
+    },
+    inscripcionProyectoAvance:async(parent,args)=>{
+      //const proyectos = await ProjectModel.find({_id:args._id}).populate('avances').populate('liderr');
+      //console.log(proyectos[0].inscripciones)
+      const inscripciones = await InscriptionModel.find().populate({path:'proyectoss'}).populate({path:'estudiantess'});
+      console.log(args._idEstudiante)
+      return inscripciones;
     }
   },
   Mutation: {
@@ -40,6 +47,16 @@ const resolverInscripciones = {
       );
       return inscripcionAprobada;
     },
+    editarEstadoInscripcion:async(parent,args)=>{
+      const inscripciones = await InscriptionModel.findByIdAndUpdate(
+        args._idInscripcion,
+        {
+          estado: args.estado
+        },
+        { new: true }
+      );
+      return inscripciones;
+    }
   },
 };
 

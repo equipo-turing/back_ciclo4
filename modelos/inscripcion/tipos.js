@@ -28,6 +28,8 @@ const tiposInscripcion = gql`
   type Query {
     Inscripciones: [Inscripcion]
     EstudiantesRegistradosLiderInscripciones:[InscripcionesUsuario]
+    inscripcionProyectoAvance(_idEstudiante:String!):[InscripcionesUsuario]
+    
   }
   type Mutation {
     crearInscripcion(
@@ -36,6 +38,7 @@ const tiposInscripcion = gql`
       estudiante: String!
     ): Inscripcion
     aprobarInscripcion(id: String!): Inscripcion
+    editarEstadoInscripcion(_idInscripcion:String!,estado:Enum_EstadoInscripcion!):InscripcionesUsuario
   }
 `;
 

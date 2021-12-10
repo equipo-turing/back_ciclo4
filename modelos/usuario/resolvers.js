@@ -75,7 +75,6 @@ const resolversUsuario = {
         { 
           _id:args._id,
           rol:"ESTUDIANTE"
-        
         },
         {
           estado: "AUTORIZADO",
