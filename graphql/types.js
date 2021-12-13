@@ -1,9 +1,9 @@
 import { gql } from 'apollo-server-express';
-import { tiposEnums } from '../modelos/enums/tipos.js';
-import { tiposUsuario } from '../modelos/usuario/tipos.js';
-import { tiposProyecto } from '../modelos/proyecto/tipos.js';
-import { tiposAvance } from '../modelos/avance/tipos.js';
-import { tiposInscripcion } from '../modelos/inscripcion/tipos.js';
+import { tiposEnums } from '../models/enums/tipos.js';
+import { tiposUsuario } from '../models/usuario/tipos.js';
+import { tiposProyecto } from '../models/proyecto/tipos.js';
+import { tiposAvance } from '../models/avance/tipos.js';
+import { tiposInscripcion } from '../models/inscripcion/tipos.js';
 import { tiposAutenticacion } from './auth/tipos.js';
 
 const tiposGlobales = gql`

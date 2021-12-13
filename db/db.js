@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 
-//para conectarse a la base de datos
 const conectarBD = async () => {
   return await mongoose
     .connect(process.env.DATABASE_URL)
